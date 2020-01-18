@@ -62,3 +62,11 @@ pull_request_rules:
       - status-failure=Semantic Pull Request
       - -merged
       - -closed
+  - name: if 'feat' doesn't contain a README change
+    actions: 
+      comment: Commits dont contain a README change even though it is marked as a feature (feat) 
+    conditions:
+      - title~="feat\(.*\):"
+      - -files~=README
+      - -merged
+      - -closed
